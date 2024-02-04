@@ -1,0 +1,39 @@
+// using Fetch
+// allows u to send data to http server
+// create a html page -> (1)=> you can see the names of 10 people
+// (2)=> you need to make sure u get this data from a api call 
+// link -> https://fakerapi.it/api/v1/persons
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="userData"></div>
+    <script>
+        // function getAnimalData(){
+        //    fetch("https://fakerapi.it/api/v1/persons")
+        //     .then((response)=>{
+        //        response.json()
+        //         .then((finalData)=>{
+        //             console.log(finalData);
+        //         })
+        //    })
+        // }
+        
+        async function getAnimalData(){
+            const response = await fetch("https://fakerapi.it/api/v1/persons")
+            const finalData = await response.json()
+            // console.log(finalData);
+            document.getElementById("userData").innerHTML = JSON.stringify(finalData)
+        }
+
+    </script>
+   
+    <button onclick="getAnimalData()">Get animal Data</button>
+
+</body>
+</html>
